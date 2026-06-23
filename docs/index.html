@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目洞察助手PRO</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --text: #20231f;
+      --muted: #667064;
+      --line: #d9ded4;
+      --card: #ffffff;
+      --accent: #27735f;
+      --accent-2: #a14f2b;
+      --soft: #e9f3ee;
+      --warn: #fff1df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 40px;
+      padding: 56px 0 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 720px;
+    }
+
+    .summary {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .summary strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    main {
+      padding: 34px 0 56px;
+    }
+
+    section {
+      margin: 0 0 34px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 25px;
+      letter-spacing: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 150px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .card p,
+    li {
+      color: var(--muted);
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .panel.warn {
+      background: var(--warn);
+    }
+
+    code {
+      background: #edf0ea;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    pre {
+      margin: 12px 0 0;
+      overflow-x: auto;
+      background: #1e241f;
+      color: #eef6ee;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 24px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .two,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">本地 Skill · 项目拆解 · 推广交接</p>
+        <h1>项目洞察助手PRO</h1>
+        <p class="lead">把原始项目资料拆解成干净、可读、可判断、可复用的项目洞察报告，帮助团队先看清产品、交易、交付、人群、风险和推广打法。</p>
+      </div>
+      <div class="summary">
+        <strong>当前版本：1.4.0</strong>
+        <p>默认输出干净阅读版，不展示编号、置信度和证据账本。审计版需要明确提出。</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>它解决什么</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>看清项目</h3>
+          <p>拆清产品定义、交付物、交易结构、费用边界和结果路径。</p>
+        </article>
+        <article class="card">
+          <h3>判断人群</h3>
+          <p>识别适合人群、不适合人群、购买者、使用者、影响者和反对者。</p>
+        </article>
+        <article class="card">
+          <h3>交接推广</h3>
+          <p>输出日常推广人群、内容资产、销售转化入口和下游写作指令。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="two">
+      <div class="panel">
+        <h2>默认输出</h2>
+        <ul>
+          <li>一页结论。</li>
+          <li>产品拆解。</li>
+          <li>交易与交付结构。</li>
+          <li>价值判断与结果边界。</li>
+          <li>目标人群与成交阻力。</li>
+          <li>日常推广打法和内容资产。</li>
+          <li>下游写作指令。</li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h2>推广红线</h2>
+        <ul>
+          <li>不写保录取、包录取、保毕业、保拿证。</li>
+          <li>不写保就业、保证高薪、保证进名企。</li>
+          <li>不把未经核实的口碑写成事实。</li>
+          <li>不使用过期排名制造当前优势。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>快速安装</h2>
+      <div class="panel">
+        <p>把 <code>skill/项目洞察助手PRO/</code> 整个目录复制到本地 skills 目录。</p>
+        <pre><code>~/.codex/skills/项目洞察助手PRO/</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>推荐调用</h2>
+      <div class="panel">
+        <pre><code>启动项目洞察PRO，基于下面的项目资料，输出一份项目洞察报告。</code></pre>
+        <pre><code>启动项目洞察PRO，输出审计版，包含编号、置信度、来源链和证据账本。</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>仓库入口</h2>
+      <div class="panel">
+        <p>运行文件位于 <code>skill/项目洞察助手PRO/</code>。安装、说明、示例和发布校验文件放在仓库根目录、<code>docs/</code>、<code>examples/</code> 和 <code>scripts/</code>。</p>
+        <p><a href="../README.md">查看 README</a> · <a href="./介绍.md">查看中文说明</a> · <a href="./安装使用.md">查看安装使用</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">项目洞察助手PRO · 作者：秦岭 · License：MIT</div>
+  </footer>
+</body>
+</html>
