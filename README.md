@@ -3,16 +3,16 @@
 把官网、手册、课程页、口述资料和内部笔记，拆成能给老板、运营、销售、写作流程继续使用的项目宣传输入包。
 
 <p align="center">
-  <img src="assets/hero-xiaoqin-project-map.png" alt="小秦整理项目地图" width="920">
+  <img src="assets/hero-project-map.png" alt="项目顾问整理项目地图" width="920">
 </p>
 
 <p align="center">
-  <strong>本地 Skill · 项目拆解 · 宣传交接 · 小秦配图 2.0</strong>
+  <strong>项目拆解 · 宣传交接 · 多工具 Skill 安装 · 案例演示</strong>
 </p>
 
 ## 它是干什么的
 
-`项目洞察助手PRO` 是一个本地 skill，专门执行项目洞察第一阶段。它读取项目资料，输出一份可读、可判断、可交接的项目宣传写作输入包。
+`项目洞察助手PRO` 是一个可安装的 skill，专门执行项目洞察第一阶段。它读取项目资料，输出一份可读、可判断、可交接的项目宣传写作输入包。
 
 适合这些场景：
 
@@ -23,7 +23,7 @@
 ## 一眼看懂运行逻辑
 
 <p align="center">
-  <img src="assets/workflow-xiaoqin-pipeline.png" alt="小秦推动项目洞察流水线" width="920">
+  <img src="assets/workflow-pipeline.png" alt="项目洞察运行流水线" width="920">
 </p>
 
 项目洞察助手PRO按五步运行：
@@ -45,7 +45,7 @@
 - 样例输出：[examples/beeger-output.md](examples/beeger-output.md)
 
 <p align="center">
-  <img src="assets/beeger-case-xiaoqin-dashboard.png" alt="小秦拆解 BeeGer 案例看板" width="920">
+  <img src="assets/beeger-case-dashboard.png" alt="BeeGer 案例拆解看板" width="920">
 </p>
 
 BeeGer 样例中，项目洞察助手PRO会拆出：
@@ -58,7 +58,7 @@ BeeGer 样例中，项目洞察助手PRO会拆出：
 ## 输出结果长什么样
 
 <p align="center">
-  <img src="assets/output-xiaoqin-handoff.png" alt="小秦交付项目洞察包" width="920">
+  <img src="assets/output-handoff.png" alt="项目洞察包交付给下游流程" width="920">
 </p>
 
 默认输出包含：
@@ -72,37 +72,103 @@ BeeGer 样例中，项目洞察助手PRO会拆出：
 - 内容资产：日常可生产的内容方向、适合平台、承接方式、销售使用方式。
 - 下游写作指令：给选题、素材、文章、短视频、咨询话术使用。
 
-## 小秦配图 2.0
+## 视觉展示资产
 
-本仓库首页的图片全部按小秦配图 2.0 生成后复制到 `assets/`。
+本仓库首页的图片用于解释 skill 的工作方式：从资料进入、结构化拆解、案例呈现到下游交接。图片保存在 `assets/`，只服务 GitHub 首页和展示文档，不放入 skill 运行目录。
 
 | 图片 | 用途 |
 |---|---|
-| `hero-xiaoqin-project-map.png` | 首页首屏，展示小秦整理项目地图 |
-| `workflow-xiaoqin-pipeline.png` | 展示运行逻辑 |
-| `beeger-case-xiaoqin-dashboard.png` | 展示 BeeGer 案例拆解 |
-| `output-xiaoqin-handoff.png` | 展示输出交接 |
-
-图片只用于仓库展示和说明，不放入 `skill/项目洞察助手PRO/` 运行目录。
+| `hero-project-map.png` | 首页首屏，展示项目资料如何被整理成地图 |
+| `workflow-pipeline.png` | 展示运行逻辑 |
+| `beeger-case-dashboard.png` | 展示 BeeGer 案例拆解 |
+| `output-handoff.png` | 展示输出交接 |
 
 ## 安装使用
 
-把 `skill/项目洞察助手PRO/` 整个目录复制到你的本地 skills 目录。
+推荐安装方式：先获取这个 GitHub 仓库，再把 `skill/项目洞察助手PRO/` 整个目录放入目标工具的 skills 目录。
 
-常见路径：
+项目地址：
 
 ```text
-C:\Users\秦岭\ZCodeProject\.Codex\skills\项目洞察助手PRO\
-C:\Users\秦岭\.codex\skills\项目洞察助手PRO\
+https://github.com/liqinling1994-cloud/project-insight-pro-skill
 ```
 
-默认调用：
+获取仓库：
+
+```powershell
+git clone https://github.com/liqinling1994-cloud/project-insight-pro-skill.git
+```
+
+如果不使用 Git，也可以在 GitHub 页面点击 `Code` -> `Download ZIP`，解压后找到：
+
+```text
+skill/项目洞察助手PRO/
+```
+
+### Codex
+
+把目录复制到 Codex 的 skills 目录，Windows 常见位置：
+
+```text
+%USERPROFILE%\.codex\skills\项目洞察助手PRO\
+```
+
+然后新开 Codex 会话，输入：
 
 ```text
 启动项目洞察PRO，基于下面这份项目资料，输出项目洞察报告。
 ```
 
-审计版调用：
+### Claude Code / CC
+
+把目录复制到 Claude Code 可读取的 skills 目录，保持结构：
+
+```text
+skills/项目洞察助手PRO/
+├─ SKILL.md
+├─ references/
+└─ templates/
+```
+
+测试指令：
+
+```text
+项目洞察助手PRO，分析下面这份项目资料。先输出干净阅读版。
+```
+
+### ZCode
+
+把目录复制到 ZCode 项目或用户级 skills 目录，常见结构：
+
+```text
+ZCodeProject/.Codex/skills/项目洞察助手PRO/
+```
+
+刷新工具的 skill 列表后，输入：
+
+```text
+启动项目洞察PRO，基于下面这段项目资料，输出一份干净阅读版项目洞察报告。
+```
+
+### WorkBuddy / Work Body / 通用 SKILL.md 工具
+
+如果工具支持读取 `SKILL.md`，按这个结构放置：
+
+```text
+skills/
+└─ 项目洞察助手PRO/
+   ├─ SKILL.md
+   ├─ references/
+   └─ templates/
+```
+
+触发指令：
+
+```text
+使用项目洞察助手PRO，基于下面资料输出项目宣传写作输入包。
+```
+
+审计版调用方式：
 
 ```text
 启动项目洞察PRO，输出审计版，包含编号、置信度和证据账本。
@@ -120,7 +186,7 @@ C:\Users\秦岭\.codex\skills\项目洞察助手PRO\
 │  ├─ index.html
 │  ├─ 介绍.md
 │  ├─ 安装使用.md
-│  └─ 本地预览验收.md
+│  └─ 发布前校验.md
 ├─ examples/
 │  ├─ 示例输入.md
 │  ├─ 示例输出结构.md
@@ -151,18 +217,16 @@ powershell -ExecutionPolicy Bypass -File scripts/validate.ps1
 - `SKILL.md` 中的内部名称是否为 `project-insight-pro`。
 - skill 运行文件中是否包含个人本机路径。
 
-## 本地网页预览
-
-仓库还保留了一个更完整的 HTML 展示页：
+## 展示页
 
 ```text
 docs/index.html
 ```
 
-如果启用 GitHub Pages，可将发布目录设置为 `/docs`。
+如果启用 GitHub Pages，可将发布目录设置为 `/docs`，展示页会作为项目介绍页面使用。
 
 ## 版本
 
-- 当前版本：`1.5.0`
+- 当前版本：`1.5.1`
 - 作者：秦岭
 - 许可证：MIT

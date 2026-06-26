@@ -98,7 +98,7 @@
       overflow: hidden;
       background:
         linear-gradient(90deg, rgba(247, 248, 245, 0.98) 0%, rgba(247, 248, 245, 0.92) 42%, rgba(247, 248, 245, 0.54) 72%, rgba(247, 248, 245, 0.14) 100%),
-        url("../assets/hero-xiaoqin-project-map.png") center right / min(620px, 46vw) auto no-repeat;
+        url("../assets/hero-project-map.png") center right / min(620px, 46vw) auto no-repeat;
     }
 
     .hero-content {
@@ -427,7 +427,7 @@
         min-height: auto;
         background:
           linear-gradient(180deg, rgba(247, 248, 245, 0.98) 0%, rgba(247, 248, 245, 0.90) 62%, rgba(247, 248, 245, 0.72) 100%),
-          url("../assets/hero-xiaoqin-project-map.png") center bottom / 620px auto no-repeat;
+          url("../assets/hero-project-map.png") center bottom / 620px auto no-repeat;
       }
 
       .hero-content {
@@ -509,14 +509,14 @@
         <a href="#workflow">运行逻辑</a>
         <a href="#case">BeeGer样例</a>
         <a href="#install">安装使用</a>
-        <a href="#preview">本地验收</a>
+        <a href="#check">发布检查</a>
       </nav>
     </div>
   </header>
 
   <section class="hero" id="top">
     <div class="wrap hero-content">
-      <p class="eyebrow">本地 Skill · 项目拆解 · 宣传交接</p>
+      <p class="eyebrow">Skill · 项目拆解 · 宣传交接</p>
       <h1><span>把项目资料拆成</span><span>能执行的宣传输入包</span></h1>
       <p class="lead">项目洞察助手PRO读取官网、手册、课程页、口述资料和内部笔记，输出产品定义、交易交付、人群判断、成交阻力、推广打法和下游写作指令。</p>
       <div class="hero-actions">
@@ -558,7 +558,7 @@
       </div>
       <div class="two-col">
         <div class="panel">
-          <img class="visual" src="../assets/workflow-xiaoqin-pipeline.png" alt="小秦推动项目洞察流水线">
+          <img class="visual" src="../assets/workflow-pipeline.png" alt="项目洞察运行流水线">
         </div>
         <div class="flow" aria-label="运行步骤">
           <article class="step">
@@ -605,7 +605,7 @@
           <div class="metric"><span>风险可控度</span><div class="bar"><span style="width: 82%"></span></div><b>82</b></div>
         </div>
         <div class="panel">
-          <img class="visual" src="../assets/output-xiaoqin-handoff.png" alt="小秦交付项目洞察包给下游流程">
+          <img class="visual" src="../assets/output-handoff.png" alt="项目洞察包交付给下游流程">
         </div>
       </div>
     </section>
@@ -641,7 +641,7 @@
           </div>
         </div>
         <div class="panel">
-          <img class="visual" src="../assets/beeger-case-xiaoqin-dashboard.png" alt="小秦拆解 BeeGer 案例看板">
+          <img class="visual" src="../assets/beeger-case-dashboard.png" alt="BeeGer 案例拆解看板">
         </div>
       </div>
     </section>
@@ -682,31 +682,36 @@
     <section id="install">
       <div class="section-head">
         <h2>安装与使用教程</h2>
-        <p>把 `skill/项目洞察助手PRO/` 整个目录复制到对应环境的本地 skill 目录，再用触发语调用。</p>
+        <p>先通过 GitHub 项目地址获取仓库，再把 `skill/项目洞察助手PRO/` 放入目标工具的 skills 目录。</p>
+      </div>
+      <div class="panel" style="margin-bottom:18px">
+        <h3>项目地址</h3>
+        <pre>https://github.com/liqinling1994-cloud/project-insight-pro-skill</pre>
+        <p>可使用 Git 克隆，也可在 GitHub 页面下载 ZIP，解压后只安装 `skill/项目洞察助手PRO/` 这个目录。</p>
       </div>
       <div class="grid-4">
         <article class="install-card">
-          <span class="tag">ZCode</span>
-          <h3>ZCode 本地目录</h3>
-          <p>适合在 ZCode 项目里使用，复制后刷新或重启工作区。</p>
-          <pre>C:\Users\秦岭\ZCodeProject\.Codex\skills\项目洞察助手PRO\</pre>
-        </article>
-        <article class="install-card">
           <span class="tag blue">Codex</span>
-          <h3>Codex 本地目录</h3>
-          <p>适合 Codex 桌面或本地 skill 环境，确认根层存在 SKILL.md。</p>
-          <pre>C:\Users\秦岭\.codex\skills\项目洞察助手PRO\</pre>
+          <h3>Codex</h3>
+          <p>复制到 Codex skills 目录，确认根层存在 SKILL.md。</p>
+          <pre>%USERPROFILE%\.codex\skills\项目洞察助手PRO\</pre>
         </article>
         <article class="install-card">
           <span class="tag gold">Claude Code / CC</span>
-          <h3>Claude Code 使用</h3>
-          <p>复制 skill 文件夹到 Claude Code 可读取的 skills 目录，保持引用文件结构。</p>
+          <h3>Claude Code</h3>
+          <p>放入 Claude Code 可读取的 skills 目录，保持引用文件结构。</p>
           <pre>skills/项目洞察助手PRO/SKILL.md</pre>
         </article>
         <article class="install-card">
-          <span class="tag red">Work Body</span>
-          <h3>通用本地 Skill</h3>
-          <p>只要支持读取本地 SKILL.md，就复制完整目录并用中文触发词启动。</p>
+          <span class="tag">ZCode</span>
+          <h3>ZCode</h3>
+          <p>复制到项目级或用户级 skills 目录，刷新 skill 列表后调用。</p>
+          <pre>ZCodeProject/.Codex/skills/项目洞察助手PRO/</pre>
+        </article>
+        <article class="install-card">
+          <span class="tag red">WorkBuddy</span>
+          <h3>WorkBuddy / Work Body</h3>
+          <p>支持读取 SKILL.md 的工具，按通用 skills 结构放置。</p>
           <pre>项目洞察助手PRO/
 ├─ SKILL.md
 ├─ references/
@@ -720,14 +725,14 @@
       </div>
     </section>
 
-    <section id="preview">
+    <section id="check">
       <div class="section-head">
-        <h2>不推送 GitHub 前怎么验收</h2>
-        <p>本地先看页面、案例、教程和脚本校验，通过后再决定是否同步远程仓库。</p>
+        <h2>发布前怎么检查</h2>
+        <p>同步远程仓库前，检查页面、案例、教程和脚本校验，确认 GitHub 首页可直接阅读。</p>
       </div>
       <div class="local-check">
         <div class="panel">
-          <h3>本地预览文件</h3>
+          <h3>检查文件</h3>
           <ul>
             <li><code>docs/index.html</code>：官方展示页。</li>
             <li><code>examples/beeger-input.md</code>：BeeGer 样例输入。</li>
@@ -736,9 +741,9 @@
           </ul>
         </div>
         <div class="panel">
-          <h3>本地验收动作</h3>
+          <h3>检查动作</h3>
           <ul>
-            <li>打开 HTML，检查小秦配图是否显示。</li>
+            <li>检查展示页图片是否显示。</li>
             <li>点击 BeeGer 官网链接，确认能跳转。</li>
             <li>检查案例输出是否能说明 skill 效果。</li>
             <li>运行校验脚本，确认仓库结构完整。</li>
@@ -749,7 +754,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap">项目洞察助手PRO · 作者：秦岭 · 本地预览版 · 版本 1.5.0</div>
+    <div class="wrap">项目洞察助手PRO · 作者：秦岭 · GitHub 展示版 · 版本 1.5.1</div>
   </footer>
 </body>
 </html>
