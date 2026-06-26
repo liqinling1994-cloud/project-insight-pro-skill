@@ -2,13 +2,14 @@
 name: project-insight-pro
 description: 项目洞察助手PRO，只执行项目洞察第一阶段：把原始项目资料拆解成干净可读的项目洞察报告，默认不显示编号和置信度。用于项目拆解、产品定义、交易与交付结构、价值判断、结果路径与边界、目标人群识别、用户决策链、成交阻力、推广人群选择、内容资产、销售转化入口、日常推广打法、卖点证据、推广红线和下游写作交接。触发词：项目洞察助手PRO、项目洞察PRO、项目洞察报告、项目宣传写作输入包、项目第一阶段拆解、深度项目洞察、目标人群分析、日常推广打法、产品判断。只有用户明确要求审计版、证据版、编号版或置信度表时，才输出编号、置信度和证据账本。不用于完整项目洞察流水线、选题框架生成、素材筛选、文章成稿或普通资料摘要。
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch
+compatibility: 适用于 Codex/Claude 类本地 skill 环境；联网证据采集需要可用搜索或网页读取工具；GitHub 分享版请把展示、安装和校验文档放在仓库根目录或 docs/。
 license: MIT
 metadata:
-  version: 1.4.0
+  version: 1.5.0
   author: 秦岭
   display_name: 项目洞察助手PRO
   category: analysis
-  updated: 2026-06-23
+  updated: 2026-06-26
   github_ready: true
 ---
 
@@ -156,6 +157,28 @@ flowchart TD
 - `02-证据账本.md`
 - `03-项目洞察报告.md`
 - `04-缺口与下一步.md`
+
+## 官方展示与样例规则
+
+GitHub 分享版可以在仓库外层展示本 skill 的运行逻辑、安装教程和样例结果。展示文件放在 `README.md`、`docs/`、`examples/` 和 `assets/`，不要放进 skill 运行目录。
+
+可维护的展示内容：
+- `docs/index.html`：官方展示页，展示输入、运行逻辑、输出结构、本地预览方式和安装教程。
+- `docs/安装使用.md`：ZCode、Codex、Claude Code / CC、Work Body 的安装和测试说明。
+- `docs/本地预览验收.md`：推送 GitHub 前的本地检查清单。
+- `examples/beeger-input.md` 和 `examples/beeger-output.md`：BeeGer 公开资料样例。
+- `assets/`：小秦配图 2.0 风格展示图。
+
+BeeGer 样例边界：
+- BeeGer 只作为公开产品样例，用来展示“输入资料 -> 项目洞察结果”的拆解效果。
+- 用户正式分析其他项目时，不要主动把 BeeGer 写入报告。
+- 只有用户明确要求分析 BeeGer、展示仓库案例、完善项目洞察PRO介绍页，或需要说明样例文件时，才引用 BeeGer。
+- 引用 BeeGer 时保留官网链接 `https://beeger.cn/`，并避免承诺爆款、成交、增长或自动化效果保证。
+
+小秦配图边界：
+- 展示页配图使用小秦配图 2.0 风格，保持短寸黑发、黑西装白衬衫、成熟商务卡通气质。
+- 每张图只表达一个核心动作，搭配真实道具和 2-4 个短中文标签。
+- 配图服务理解流程和样例结果，避免变成复杂 UI 截图、Logo 设计或通用装饰图。
 
 ## 质量闸门
 

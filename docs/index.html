@@ -8,154 +8,43 @@
     :root {
       color-scheme: light;
       --bg: #f7f8f5;
-      --text: #20231f;
-      --muted: #667064;
-      --line: #d9ded4;
-      --card: #ffffff;
-      --accent: #27735f;
-      --accent-2: #a14f2b;
-      --soft: #e9f3ee;
-      --warn: #fff1df;
+      --surface: #ffffff;
+      --ink: #1d2421;
+      --muted: #5d6863;
+      --line: #d8ded6;
+      --green: #2e8067;
+      --red: #ad4939;
+      --blue: #425f8f;
+      --gold: #9a7025;
+      --soft-green: #edf5f2;
+      --soft-red: #f8ebe7;
+      --soft-blue: #eef2f8;
+      --soft-gold: #fff5df;
+      --shadow: 0 18px 48px rgba(36, 45, 40, 0.10);
     }
 
     * {
       box-sizing: border-box;
+      min-width: 0;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
       line-height: 1.65;
-    }
-
-    header {
-      border-bottom: 1px solid var(--line);
-      background: #ffffff;
-    }
-
-    .wrap {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-      gap: 40px;
-      padding: 56px 0 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 700;
-      margin: 0 0 10px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 720px;
-    }
-
-    .summary {
-      border: 1px solid var(--line);
-      background: var(--soft);
-      border-radius: 8px;
-      padding: 18px;
-    }
-
-    .summary strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent);
-    }
-
-    main {
-      padding: 34px 0 56px;
-    }
-
-    section {
-      margin: 0 0 34px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: 25px;
-      letter-spacing: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-      min-height: 150px;
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
-      letter-spacing: 0;
-    }
-
-    .card p,
-    li {
-      color: var(--muted);
-    }
-
-    .two {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .panel.warn {
-      background: var(--warn);
-    }
-
-    code {
-      background: #edf0ea;
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-family: Consolas, "Courier New", monospace;
-    }
-
-    pre {
-      margin: 12px 0 0;
-      overflow-x: auto;
-      background: #1e241f;
-      color: #eef6ee;
-      border-radius: 8px;
-      padding: 16px;
+      overflow-x: hidden;
     }
 
     a {
-      color: var(--accent);
+      color: var(--green);
       font-weight: 700;
       text-decoration: none;
     }
@@ -164,111 +53,703 @@
       text-decoration: underline;
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      padding: 24px 0;
+    .wrap {
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
       font-size: 14px;
     }
 
-    @media (max-width: 860px) {
-      .hero,
-      .two,
-      .grid {
+    .hero {
+      min-height: 72vh;
+      max-height: 680px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(247, 248, 245, 0.98) 0%, rgba(247, 248, 245, 0.92) 42%, rgba(247, 248, 245, 0.54) 72%, rgba(247, 248, 245, 0.14) 100%),
+        url("../assets/hero-xiaoqin-project-map.png") center right / min(620px, 46vw) auto no-repeat;
+    }
+
+    .hero-content {
+      max-width: 690px;
+      padding: 74px 0 84px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: var(--green);
+    }
+
+    main {
+      padding: 34px 0 64px;
+    }
+
+    section {
+      margin: 0 0 42px;
+      scroll-margin-top: 86px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(25px, 3vw, 36px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .note {
+      margin: 0;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card,
+    .panel,
+    .step,
+    .install-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 20px;
+      min-height: 150px;
+    }
+
+    .card h3,
+    .install-card h3,
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .card p,
+    .install-card p,
+    .step p,
+    li {
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--green);
+      background: var(--soft-green);
+    }
+
+    .tag.red {
+      color: var(--red);
+      background: var(--soft-red);
+    }
+
+    .tag.blue {
+      color: var(--blue);
+      background: var(--soft-blue);
+    }
+
+    .tag.gold {
+      color: var(--gold);
+      background: var(--soft-gold);
+    }
+
+    .panel {
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .visual {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 154px;
+      padding: 18px;
+    }
+
+    .step strong {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      color: #ffffff;
+      background: var(--green);
+      font-size: 15px;
+    }
+
+    .radar {
+      display: grid;
+      gap: 14px;
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr) 46px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bar {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e6ebe6;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .case-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .case-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .case-row strong {
+      color: var(--ink);
+    }
+
+    .preview {
+      display: grid;
+      gap: 12px;
+    }
+
+    .preview-item {
+      padding: 14px 16px;
+      border-left: 4px solid var(--green);
+      background: #ffffff;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    .preview-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+    }
+
+    .install-card {
+      padding: 18px;
+      min-height: 210px;
+    }
+
+    code,
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: #edf0ea;
+    }
+
+    pre {
+      margin: 12px 0 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      padding: 14px;
+      color: #eef6ee;
+      background: #1f2924;
+      font-size: 13px;
+    }
+
+    .local-check {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 940px) {
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(247, 248, 245, 0.98) 0%, rgba(247, 248, 245, 0.90) 62%, rgba(247, 248, 245, 0.72) 100%),
+          url("../assets/hero-xiaoqin-project-map.png") center bottom / 620px auto no-repeat;
+      }
+
+      .hero-content {
+        padding: 44px 0 280px;
+      }
+
+      .section-head,
+      .two-col,
+      .grid-3,
+      .grid-4,
+      .flow,
+      .local-check {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 36px;
+      .section-head {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 44px, 1140px);
+      }
+
+      .topbar .wrap {
+        align-items: start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      .hero-content {
+        padding-bottom: 240px;
+        width: min(100% - 44px, 1140px);
+        max-width: min(100% - 44px, 1140px);
+      }
+
+      h1 {
+        max-width: 330px;
+        font-size: 32px;
+        line-height: 1.12;
+        word-break: break-all;
+      }
+
+      .lead {
+        max-width: 330px;
+        font-size: 17px;
+        word-break: break-all;
+      }
+
+      .card p,
+      .panel p,
+      .preview-item,
+      li {
+        overflow-wrap: anywhere;
+        word-break: break-all;
+      }
+
+      .metric {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .case-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap hero">
-      <div>
-        <p class="eyebrow">本地 Skill · 项目拆解 · 推广交接</p>
-        <h1>项目洞察助手PRO</h1>
-        <p class="lead">把原始项目资料拆解成干净、可读、可判断、可复用的项目洞察报告，帮助团队先看清产品、交易、交付、人群、风险和推广打法。</p>
-      </div>
-      <div class="summary">
-        <strong>当前版本：1.4.0</strong>
-        <p>默认输出干净阅读版，不展示编号、置信度和证据账本。审计版需要明确提出。</p>
-      </div>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">项目洞察助手PRO</div>
+      <nav aria-label="页面导航">
+        <a href="#workflow">运行逻辑</a>
+        <a href="#case">BeeGer样例</a>
+        <a href="#install">安装使用</a>
+        <a href="#preview">本地验收</a>
+      </nav>
     </div>
   </header>
 
+  <section class="hero" id="top">
+    <div class="wrap hero-content">
+      <p class="eyebrow">本地 Skill · 项目拆解 · 宣传交接</p>
+      <h1><span>把项目资料拆成</span><span>能执行的宣传输入包</span></h1>
+      <p class="lead">项目洞察助手PRO读取官网、手册、课程页、口述资料和内部笔记，输出产品定义、交易交付、人群判断、成交阻力、推广打法和下游写作指令。</p>
+      <div class="hero-actions">
+        <a class="btn" href="../examples/beeger-output.md">查看 BeeGer 样例</a>
+        <a class="btn secondary" href="#install">安装使用教程</a>
+      </div>
+    </div>
+  </section>
+
   <main class="wrap">
-    <section>
-      <h2>它解决什么</h2>
-      <div class="grid">
+    <section id="value">
+      <div class="section-head">
+        <h2>一眼看懂它做什么</h2>
+        <p>它只做项目洞察第一阶段，把原始资料变成可读、可判断、可交接的业务判断。</p>
+      </div>
+      <div class="grid-3">
         <article class="card">
-          <h3>看清项目</h3>
-          <p>拆清产品定义、交付物、交易结构、费用边界和结果路径。</p>
+          <span class="tag">输入</span>
+          <h3>把资料喂进去</h3>
+          <p>官网、项目手册、课程页、招生简章、销售笔记、竞品信息和用户口述都可以作为输入。</p>
         </article>
         <article class="card">
-          <h3>判断人群</h3>
-          <p>识别适合人群、不适合人群、购买者、使用者、影响者和反对者。</p>
+          <span class="tag gold">拆解</span>
+          <h3>把项目看清楚</h3>
+          <p>拆产品定义、用户买到什么、怎么交付、结果边界、适合谁、谁会反对。</p>
         </article>
         <article class="card">
-          <h3>交接推广</h3>
-          <p>输出日常推广人群、内容资产、销售转化入口和下游写作指令。</p>
+          <span class="tag blue">输出</span>
+          <h3>给下游继续用</h3>
+          <p>输出给选题、素材、文章、短视频、销售话术和项目复盘流程继续调用。</p>
         </article>
       </div>
     </section>
 
-    <section class="two">
-      <div class="panel">
-        <h2>默认输出</h2>
-        <ul>
-          <li>一页结论。</li>
-          <li>产品拆解。</li>
-          <li>交易与交付结构。</li>
-          <li>价值判断与结果边界。</li>
-          <li>目标人群与成交阻力。</li>
-          <li>日常推广打法和内容资产。</li>
-          <li>下游写作指令。</li>
-        </ul>
+    <section id="workflow">
+      <div class="section-head">
+        <h2>运行逻辑</h2>
+        <p>流程固定，表达保持可读。编号、置信度和证据账本默认留在内部，审计版才展开。</p>
       </div>
-      <div class="panel warn">
-        <h2>推广红线</h2>
-        <ul>
-          <li>不写保录取、包录取、保毕业、保拿证。</li>
-          <li>不写保就业、保证高薪、保证进名企。</li>
-          <li>不把未经核实的口碑写成事实。</li>
-          <li>不使用过期排名制造当前优势。</li>
-        </ul>
+      <div class="two-col">
+        <div class="panel">
+          <img class="visual" src="../assets/workflow-xiaoqin-pipeline.png" alt="小秦推动项目洞察流水线">
+        </div>
+        <div class="flow" aria-label="运行步骤">
+          <article class="step">
+            <strong>1</strong>
+            <h3>识别项目</h3>
+            <p>先确认主体、交付物、价格、目标结果和资料缺口。</p>
+          </article>
+          <article class="step">
+            <strong>2</strong>
+            <h3>建立底稿</h3>
+            <p>把事实、来源、时效、风险和待核验点分层记录。</p>
+          </article>
+          <article class="step">
+            <strong>3</strong>
+            <h3>拆交易交付</h3>
+            <p>说明用户买到什么、怎么交付、谁负责、边界在哪里。</p>
+          </article>
+          <article class="step">
+            <strong>4</strong>
+            <h3>判断人群</h3>
+            <p>识别适合对象、付款者、使用者、影响者和反对者。</p>
+          </article>
+          <article class="step">
+            <strong>5</strong>
+            <h3>输出交接</h3>
+            <p>给出推广主线、内容资产、转化入口和下游写作指令。</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2>快速安装</h2>
-      <div class="panel">
-        <p>把 <code>skill/项目洞察助手PRO/</code> 整个目录复制到本地 skills 目录。</p>
-        <pre><code>~/.codex/skills/项目洞察助手PRO/</code></pre>
+      <div class="section-head">
+        <h2>输出质量雷达</h2>
+        <p>每份报告都要让用户先看懂项目，再决定怎么推广。</p>
+      </div>
+      <div class="two-col">
+        <div class="panel radar" aria-label="输出质量指标">
+          <div class="metric"><span>产品清晰度</span><div class="bar"><span style="width: 92%"></span></div><b>92</b></div>
+          <div class="metric"><span>交付清晰度</span><div class="bar"><span style="width: 88%"></span></div><b>88</b></div>
+          <div class="metric"><span>人群明确度</span><div class="bar"><span style="width: 90%"></span></div><b>90</b></div>
+          <div class="metric"><span>推广可用度</span><div class="bar"><span style="width: 86%"></span></div><b>86</b></div>
+          <div class="metric"><span>证据强度</span><div class="bar"><span style="width: 74%"></span></div><b>74</b></div>
+          <div class="metric"><span>风险可控度</span><div class="bar"><span style="width: 82%"></span></div><b>82</b></div>
+        </div>
+        <div class="panel">
+          <img class="visual" src="../assets/output-xiaoqin-handoff.png" alt="小秦交付项目洞察包给下游流程">
+        </div>
+      </div>
+    </section>
+
+    <section id="case">
+      <div class="section-head">
+        <h2>真实产品样例：BeeGer</h2>
+        <p>BeeGer 作为公开样例出现，用来展示本 skill 的拆解效果。它不改变项目洞察助手PRO的主定位。</p>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <div class="case-title">
+            <span class="tag red">软案例</span>
+            <a href="https://beeger.cn/" target="_blank" rel="noopener">访问 BeeGer 官网</a>
+          </div>
+          <div class="case-list">
+            <div class="case-row">
+              <strong>产品定义</strong>
+              <span>BeeGer 是一位 AI 运营官，围绕业务档案调度智能体完成内容生产与发布。</span>
+            </div>
+            <div class="case-row">
+              <strong>核心价值</strong>
+              <span>放大最懂业务的人的判断，把资料、素材和账号定位转成持续内容资产。</span>
+            </div>
+            <div class="case-row">
+              <strong>优先人群</strong>
+              <span>企业老板、专业顾问、矩阵操盘手、代运营、一人公司和课程团队。</span>
+            </div>
+            <div class="case-row">
+              <strong>推广边界</strong>
+              <span>不承诺爆款、成交或增长，不替代真实专业判断和真实拍摄。</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <img class="visual" src="../assets/beeger-case-xiaoqin-dashboard.png" alt="小秦拆解 BeeGer 案例看板">
+        </div>
       </div>
     </section>
 
     <section>
-      <h2>推荐调用</h2>
-      <div class="panel">
-        <pre><code>启动项目洞察PRO，基于下面的项目资料，输出一份项目洞察报告。</code></pre>
-        <pre><code>启动项目洞察PRO，输出审计版，包含编号、置信度、来源链和证据账本。</code></pre>
+      <div class="section-head">
+        <h2>样例输出预览</h2>
+        <p>完整样例放在 `examples/` 目录，本页展示关键片段。</p>
+      </div>
+      <div class="grid-3 preview">
+        <div class="preview-item">
+          <strong>一句话定义</strong>
+          BeeGer 是面向内容运营场景的 AI 运营官。
+        </div>
+        <div class="preview-item">
+          <strong>用户买到什么</strong>
+          用户买到的是一套能持续工作的内容运营链路。
+        </div>
+        <div class="preview-item">
+          <strong>先打哪群人</strong>
+          先打有产品、有业务判断、有持续内容需求的人。
+        </div>
+        <div class="preview-item">
+          <strong>成交阻力</strong>
+          用户会担心 AI 不懂业务、内容不像账号语气、自动发布有风险。
+        </div>
+        <div class="preview-item">
+          <strong>内容资产</strong>
+          成本账、角色场景、业务档案演示、素材复用演示和发布链路演示。
+        </div>
+        <div class="preview-item">
+          <strong>下游指令</strong>
+          给选题、文章、短视频和销售话术流程继续使用。
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>仓库入口</h2>
-      <div class="panel">
-        <p>运行文件位于 <code>skill/项目洞察助手PRO/</code>。安装、说明、示例和发布校验文件放在仓库根目录、<code>docs/</code>、<code>examples/</code> 和 <code>scripts/</code>。</p>
-        <p><a href="../README.md">查看 README</a> · <a href="./介绍.md">查看中文说明</a> · <a href="./安装使用.md">查看安装使用</a></p>
+    <section id="install">
+      <div class="section-head">
+        <h2>安装与使用教程</h2>
+        <p>把 `skill/项目洞察助手PRO/` 整个目录复制到对应环境的本地 skill 目录，再用触发语调用。</p>
+      </div>
+      <div class="grid-4">
+        <article class="install-card">
+          <span class="tag">ZCode</span>
+          <h3>ZCode 本地目录</h3>
+          <p>适合在 ZCode 项目里使用，复制后刷新或重启工作区。</p>
+          <pre>C:\Users\秦岭\ZCodeProject\.Codex\skills\项目洞察助手PRO\</pre>
+        </article>
+        <article class="install-card">
+          <span class="tag blue">Codex</span>
+          <h3>Codex 本地目录</h3>
+          <p>适合 Codex 桌面或本地 skill 环境，确认根层存在 SKILL.md。</p>
+          <pre>C:\Users\秦岭\.codex\skills\项目洞察助手PRO\</pre>
+        </article>
+        <article class="install-card">
+          <span class="tag gold">Claude Code / CC</span>
+          <h3>Claude Code 使用</h3>
+          <p>复制 skill 文件夹到 Claude Code 可读取的 skills 目录，保持引用文件结构。</p>
+          <pre>skills/项目洞察助手PRO/SKILL.md</pre>
+        </article>
+        <article class="install-card">
+          <span class="tag red">Work Body</span>
+          <h3>通用本地 Skill</h3>
+          <p>只要支持读取本地 SKILL.md，就复制完整目录并用中文触发词启动。</p>
+          <pre>项目洞察助手PRO/
+├─ SKILL.md
+├─ references/
+└─ templates/</pre>
+        </article>
+      </div>
+      <div class="panel" style="margin-top: 14px;">
+        <h3>最小测试指令</h3>
+        <pre>启动项目洞察PRO，基于下面这段项目资料，输出一份干净阅读版项目洞察报告。</pre>
+        <pre>启动项目洞察PRO，输出审计版，包含编号、置信度、来源链和证据账本。</pre>
+      </div>
+    </section>
+
+    <section id="preview">
+      <div class="section-head">
+        <h2>不推送 GitHub 前怎么验收</h2>
+        <p>本地先看页面、案例、教程和脚本校验，通过后再决定是否同步远程仓库。</p>
+      </div>
+      <div class="local-check">
+        <div class="panel">
+          <h3>本地预览文件</h3>
+          <ul>
+            <li><code>docs/index.html</code>：官方展示页。</li>
+            <li><code>examples/beeger-input.md</code>：BeeGer 样例输入。</li>
+            <li><code>examples/beeger-output.md</code>：BeeGer 样例输出。</li>
+            <li><code>docs/安装使用.md</code>：多平台安装教程。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>本地验收动作</h3>
+          <ul>
+            <li>打开 HTML，检查小秦配图是否显示。</li>
+            <li>点击 BeeGer 官网链接，确认能跳转。</li>
+            <li>检查案例输出是否能说明 skill 效果。</li>
+            <li>运行校验脚本，确认仓库结构完整。</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">项目洞察助手PRO · 作者：秦岭 · License：MIT</div>
+  <footer class="footer">
+    <div class="wrap">项目洞察助手PRO · 作者：秦岭 · 本地预览版 · 版本 1.5.0</div>
   </footer>
 </body>
 </html>
